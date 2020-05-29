@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const addTask = require('./repository/addTask.js');
+const getTask = require('./repository/getTask.js');
 
 const json = bodyParser.json();
 const app = express();
@@ -27,7 +28,17 @@ app.post("/setTask", json, (req,res) => {
 });
 
 app.get("/getTask", (req, res) => {
-    
+
+    //get data from atlas
+    getTask.get()
+    .then((value) => {
+        res.status(200);
+        res.send(value);
+    })
+    .catch((err) => {
+        res.status(501);
+        res.send(err);
+    })
 });
 
 const server = app.listen(8080, "127.0.0.1", ()=> {
