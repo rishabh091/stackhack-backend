@@ -1,0 +1,11 @@
+//will contain login and sign up
+const express = require('express');
+const router = express.Router();
+
+router.get('/login', (req, res) => {
+    res.send('login');
+})
+
+module.exports = {
+    loginRouter: router
+}
