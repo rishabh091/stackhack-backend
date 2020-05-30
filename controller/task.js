@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 
 const addTask = require('../repository/addTask.js');
 const getTask = require('../repository/getTask.js');
+const updateProgress = require('../repository/updateProgress.js');
 
 const json = bodyParser.json();
 
@@ -35,6 +36,18 @@ router.get("/getTask", (req, res) => {
         res.status(501);
         res.send(err);
     })
+});
+
+router.post('/isCompleted', json, (req, res) => {
+    const id = req._id;
+
+    updateProgress.update(id)
+    .then((result) => {
+        res.send(true);
+    })
+    .catch((err) => {
+        res.send(false);
+    });
 });
 
 module.exports = {
