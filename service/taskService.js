@@ -27,7 +27,7 @@ const update = (task) => {
         _id: task._id
     }
 
-    return Task.update(query, { $set: task })
+    return Task.updateOne(query, { $set: task })
 }
 
 const getCompleted = () => {
