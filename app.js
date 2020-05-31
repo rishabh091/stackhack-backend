@@ -27,6 +27,6 @@ const app = express()
 //embedding routes in express app
 app.use(taskRoutes)
 
-const server = app.listen(8080, () => {
+const server = app.listen(process.env.PORT, () => {
     console.log('Server started at port : ' + server.address().port);
 })
