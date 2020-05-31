@@ -15,8 +15,8 @@ db.on('error', () => { console.log('Error connecting to database') })
 const app = express()
 
 //embedding routes in express app
-app.use(taskRoutes);
+app.use(taskRoutes)
 
 const server = app.listen(8080, () => {
-    console.log('Server started at port : ' + server.address().port);
+    console.log('Server started at port : ' + server.address().port)
 })
