@@ -36,3 +36,4 @@ Method: GET
 Desc: Return tasks searched by priority, REPLACE :priority BY PRIORITY YOU WANT TO SEARCH
 
 Please contact if any problem occurs
+SEND ME THE FRONTEND LINK SO THAT I CAN UPDATE CORS OTHERWISE IT WONT WORK
