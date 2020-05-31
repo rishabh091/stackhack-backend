@@ -5,7 +5,11 @@ var taskSchema = new mongoose.Schema({
     category: String,
     task: String,
     priority: Number,
-    completed: Boolean
+    completed: Boolean,
+    date: {
+        current: Date,
+        due: Date
+    }
 })
 
 //created modal using that schema
