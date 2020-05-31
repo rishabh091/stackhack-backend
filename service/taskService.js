@@ -7,10 +7,14 @@ const add = (task) => {
 }
 
 const get = () => {
-    return Task.find({})
+    const query = {
+        completed: false
+    }
+
+    return Task.find(query)
 }
 
-const update = (id) => {
+const completed = (id) => {
     const query = {
         _id: id
     }
@@ -18,8 +22,49 @@ const update = (id) => {
     return Task.updateOne(query, { $set: { completed: true } })
 }
 
+const update = (task) => {
+    let query = {
+        _id: task._id
+    }
+
+    return Task.update(query, { $set: task })
+}
+
+const getCompleted = () => {
+    const query = {
+        completed: true
+    }
+
+    return Task.find(query)
+}
+
+const category = (filter) => {
+    const query = {
+        category: filter
+    }
+
+    return Task.find(query)
+}
+
+const all = () => {
+    return Task.find()
+}
+
+const byPriority = (priority) => {
+    const query = {
+        priority: priority
+    }
+
+    return Task.find(query)
+}
+
 module.exports = {
     add: add,
     get: get,
-    update: update
+    completed: completed,
+    update: update,
+    getCompleted: getCompleted,
+    category: category,
+    all: all,
+    byPriority: byPriority
 }
