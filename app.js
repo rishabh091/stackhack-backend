@@ -1,5 +1,9 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const cors = require('cors');
+
+//setting permission for CORS
+const permission = cors('http://localhost:4200')
 
 //using dotenv to use environmental variables to store passwords
 require('dotenv').config()
@@ -23,6 +27,9 @@ db.on('error', () => { console.log('Error connecting to database') })
 
 //starting express
 const app = express()
+
+//using CORS
+app.use(permission);
 
 //embedding routes in express app
 app.use(taskRoutes)
