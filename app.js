@@ -4,6 +4,7 @@ const cors = require('cors');
 
 //setting permission for CORS
 const permission = cors('http://localhost:4200')
+const hostingSite = cors('https://stackhack.web.app');
 
 //using dotenv to use environmental variables to store passwords
 require('dotenv').config()
@@ -30,6 +31,7 @@ const app = express()
 
 //using CORS
 app.use(permission);
+app.use(hostingSite);
 
 //embedding routes in express app
 app.use(taskRoutes)
